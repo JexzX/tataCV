@@ -51,3 +51,32 @@ def apply_transformations():
 if __name__ == "__main__":
     create_solar_system()
     apply_transformations()
+
+def apply_bitwise_operations():
+    original_image = cv2.imread('output/karakter.png')
+    
+    print("Applying bitwise operations...")
+    
+    background = np.zeros((600, 800, 3), dtype=np.uint8)
+    for i in range(600):
+        color_value = 150 + int(i * 0.1)
+        background[i] = (color_value, color_value, 255)
+    
+    cv2.imwrite('output/background.png', background)
+    print("Background created: output/background.png")
+    
+    gray = cv2.cvtColor(original_image, cv2.COLOR_BGR2GRAY)
+    _, mask = cv2.threshold(gray, 10, 255, cv2.THRESH_BINARY)
+    mask_rgb = cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR)
+    result_and = cv2.bitwise_and(background, mask_rgb)
+    cv2.imwrite('output/bitwise_and.png', result_and)
+    print("Bitwise AND completed: output/bitwise_and.png")
+    
+    result_or = cv2.bitwise_or(background, original_image)
+    cv2.imwrite('output/bitwise_or.png', result_or)
+    print("Bitwise OR completed: output/bitwise_or.png")
+
+if __name__ == "__main__":
+    create_solar_system()
+    apply_transformations()
+    apply_bitwise_operations()
