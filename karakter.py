@@ -24,3 +24,30 @@ def create_solar_system():
 
 if __name__ == "__main__":
     create_solar_system()
+
+def apply_transformations():
+    original_image = cv2.imread('output/karakter.png')
+    height, width = original_image.shape[:2]
+    
+    print("Applying geometric transformations...")
+    
+    center = (width // 2, height // 2)
+    rotation_matrix = cv2.getRotationMatrix2D(center, 45, 1.0)
+    rotated_image = cv2.warpAffine(original_image, rotation_matrix, (width, height))
+    cv2.imwrite('output/rotate.png', rotated_image)
+    print("Rotation completed: output/rotate.png")
+    
+    new_size = (width // 2, height // 2)
+    resized_image = cv2.resize(original_image, new_size)
+    cv2.imwrite('output/resize.png', resized_image)
+    print("Resize completed: output/resize.png")
+    
+    x1, y1 = 150, 400
+    x2, y2 = 250, 500
+    cropped_image = original_image[y1:y2, x1:x2]
+    cv2.imwrite('output/crop.png', cropped_image)
+    print("Crop completed: output/crop.png")
+
+if __name__ == "__main__":
+    create_solar_system()
+    apply_transformations()
