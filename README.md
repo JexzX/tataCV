@@ -1,20 +1,20 @@
-A. Solar System Computer Vision Project
+**Annyeonghaseyo!**
 
-**Nama:** [-]
+**A. Solar System Computer Vision Project**
 
-Annyeonghaseyo!
+Nama: [JexzX]
 
-B. Deskripsi Project
+**B. Deskripsi Project**
 Project ini membuat visualisasi tata surya menggunakan OpenCV dan Python. Program membuat gambar planet, bintang, dan matahari, kemudian melakukan transformasi geometrik dan operasi bitwise.
 
-C. Teknologi
+**C. Teknologi**
 
 - Python 3
 - OpenCV
 - NumPy
 - Matplotlib
 
-D. File Output
+**D. File Output**
 Program menghasilkan 8 file gambar:
 
 1. **karakter.png** - Gambar awal tata surya
@@ -26,7 +26,7 @@ Program menghasilkan 8 file gambar:
 7. **bitwise_or.png** - Hasil operasi OR
 8. **final.png** - Gambar akhir yang menggabungkan semua
 
-E. Cara Menjalankan
+**E. Cara Menjalankan**
 
 ```bash
 # Install dependencies
@@ -36,5 +36,23 @@ pip install opencv-python numpy matplotlib
 python karakter.py
 ```
 
-Gomawo!
-Da-eumehdo doum deurimyeon gamsahamnida!
+**F. Hasil Output**
+
+1. Karakter Awal - Tata Surya
+   ![Solar System](output/karakter.png)
+
+2. Hasil Transformasi
+   | Rotasi 45° | Resize 50% | Crop Saturn |
+   |------------|------------|-------------|
+   | ![Rotate](output/rotate.png) | ![Resize](output/resize.png) | ![Crop](output/crop.png) |
+
+3. Operasi Bitwise
+   | Background | Bitwise AND | Bitwise OR |
+   |------------|-------------|------------|
+   | ![Background](output/background.png) | ![AND](output/bitwise_and.png) | ![OR](output/bitwise_or.png) |
+
+4. Final Project
+   ![Final Result](output/final.png)
+
+**Gomawo!**
+**Da-eumehdo doum deurimyeon gamsahamnida!**
