@@ -80,3 +80,43 @@ if __name__ == "__main__":
     create_solar_system()
     apply_transformations()
     apply_bitwise_operations()
+
+def create_final_project():
+    print("Creating final project composition...")
+    
+    background = cv2.imread('output/background.png')
+    original = cv2.imread('output/karakter.png')
+    rotated = cv2.imread('output/rotate.png')
+    resized = cv2.imread('output/resize.png')
+    cropped = cv2.imread('output/crop.png')
+    
+    final_canvas = background.copy()
+    
+    final_canvas = cv2.bitwise_or(final_canvas, original)
+    
+    final_canvas[50:350, 500:750] = rotated[50:350, 50:300]
+    
+    large_resized = cv2.resize(resized, (200, 150))
+    final_canvas[400:550, 50:250] = large_resized
+    
+    large_cropped = cv2.resize(cropped, (100, 100))
+    final_canvas[350:450, 600:700] = large_cropped
+    
+    cv2.putText(final_canvas, "TATA and SURYA : TATA SURYA AHAHA", (150, 30), 
+                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+    cv2.putText(final_canvas, "Computer Vision Uts", (250, 60), 
+                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
+    
+    cv2.imwrite('output/final.png', final_canvas)
+    print("Final project completed: output/final.png")
+    
+    cv2.imshow('Final Project: Solar System Computer Vision', final_canvas)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+if __name__ == "__main__":
+    create_solar_system()
+    apply_transformations()
+    apply_bitwise_operations()
+    create_final_project()
+    print("All tasks completed successfully!")
